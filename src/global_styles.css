@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Playfair Display", serif;
+  --font-sans: "Inter", sans-serif;
+
+  --color-cream-50: #fdfcfa;
+  --color-cream-100: #f8f5f0;
+  --color-cream-200: #efe8dd;
+
+  --color-beige-100: #e8dcc9;
+  --color-beige-200: #d9c8ae;
+  --color-beige-300: #c9b893;
+
+  --color-coffee-100: #c9b1a0;
+  --color-coffee-200: #a08068;
+  --color-coffee-300: #7a5a44;
+  --color-coffee-400: #5c4030;
+  --color-coffee-500: #432f22;
+
+  --color-terracota-100: #d49e8a;
+  --color-terracota-200: #c68068;
+  --color-terracota-300: #b0624a;
+  --color-terracota-400: #984f38;
+
+  --color-ink: #1a1410;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-cream-50);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer utilities {
+  .font-display { font-family: var(--font-display); }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-up { animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  .animate-fade-in { animation: fadeIn 0.6s ease both; }
+
+  @keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.96); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  .animate-scale-in { animation: scaleIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+  .animate-float { animation: float 4s ease-in-out infinite; }
+}
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--color-cream-100); }
+::-webkit-scrollbar-thumb { background: var(--color-coffee-200); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-coffee-300); }
